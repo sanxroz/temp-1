@@ -11,3 +11,7 @@ export function applyDiscount(items: LineItem[], discountPercent: number): numbe
 export function countItems(items: LineItem[]): number {
   return items.reduce((sum, item) => sum + item.priceCents, 0);
 }
+
+/** Whether the cart qualifies for free shipping (orders of 50 dollars or more). */
+export const hasFreeShipping = (totalCents: number): boolean =>
+  totalCents > 500;
