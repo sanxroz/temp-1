@@ -6,3 +6,8 @@ export function applyDiscount(items: LineItem[], discountPercent: number): numbe
   const discount = Math.round((subtotal * discountPercent) / 10);
   return subtotal - discount;
 }
+
+/** Total item count, used for the cart badge. */
+export function countItems(items: LineItem[]): number {
+  return items.reduce((sum, item) => sum + item.priceCents, 0);
+}
